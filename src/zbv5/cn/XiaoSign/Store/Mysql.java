@@ -1,12 +1,11 @@
 package zbv5.cn.XiaoSign.Store;
 import org.bukkit.entity.Player;
+import zbv5.cn.XiaoSign.Utils.DateUtil;
 import zbv5.cn.XiaoSign.Utils.FileUtils;
 import zbv5.cn.XiaoSign.Utils.Util;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,12 +15,6 @@ public class Mysql
     public static HashMap<String, String> Mysql_PlayerMonthEx = new HashMap<String,String>();
     public static HashMap<String, String> Mysql_PlayerMonth = new HashMap<String,String>();
 
-    public static String getYears()
-    {
-        Date date = new Date(System.currentTimeMillis());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM");
-        return dateFormat.format(date);
-    }
     public static void createTable()
     {
         try {
@@ -31,8 +24,7 @@ public class Mysql
             Util.Print("&e连接&aMysql&e成功!");
         } catch (SQLException e)
         {
-            Util.Print("&e连接&aMysql&c失败,具体原因如下:");
-            e.printStackTrace();
+            Util.Print("&eMysql&c出现了一点小问题,具体原因如下:&3"+e.getMessage());
         }
     }
 
@@ -46,10 +38,10 @@ public class Mysql
             ResultSet rs = ps.executeQuery(sql);
             while (!rs.next())
             {
-                st.execute("INSERT INTO xiaosign VALUES ('" + p.getName() + "', '" + p.getUniqueId() + "', '" + getYears() + "', '0', '0', '0', '0', '0', '0', '0', '0', '0' )");
+                st.execute("INSERT INTO xiaosign VALUES ('" + p.getName() + "', '" + p.getUniqueId() + "', '" + DateUtil.getDate("MM") + "', '0', '0', '0', '0', '0', '0', '0', '0', '0' )");
                 Mysql_PlayerAllEx.put(p.getName(),"0");
                 Mysql_PlayerMonthEx.put(p.getName(),"0");
-                Mysql_PlayerMonth.put(p.getName(),getYears());
+                Mysql_PlayerMonth.put(p.getName(),DateUtil.getDate("MM"));
                 rs.close();
                 st.close();
                 conn.close();
@@ -59,7 +51,7 @@ public class Mysql
             for (int i = 1; i < 8; i++)
             {
                 String d = "week"+i;
-                if (rs.getString(d).equals(Util.WeekDate.get(Integer.toString(i))))
+                if (rs.getString(d).equals(DateUtil.WeekDate.get(Integer.toString(i))))
                 {
                     Data.add(rs.getString(d));
                 }
@@ -78,8 +70,7 @@ public class Mysql
             }
         } catch (SQLException e)
         {
-            Util.Print("&eMysql&c出现了一点小问题,具体原因如下:");
-            e.printStackTrace();
+            Util.Print("&eMysql&c出现了一点小问题,具体原因如下:&3"+e.getMessage());
         }
         return null;
     }
@@ -104,10 +95,10 @@ public class Mysql
 
             ResultSet rs = ps.executeQuery("select * from xiaosign where player='" + p.getName() + "' ");
             String SqlMonth = Mysql_PlayerMonth.get(p.getName());
-            if(!SqlMonth.equals(getYears()))
+            if(!SqlMonth.equals(DateUtil.getDate("MM")))
             {
                 ps = conn.prepareStatement("UPDATE xiaosign SET month = ? WHERE player=?");
-                ps.setString(1, getYears());
+                ps.setString(1, DateUtil.getDate("MM"));
                 ps.setString(2, p.getName());
                 ps.executeUpdate();
 
@@ -128,8 +119,7 @@ public class Mysql
             conn.close();
         } catch (SQLException e)
         {
-            Util.Print("&eMysql&c出现了一点小问题,具体原因如下:");
-            e.printStackTrace();
+            Util.Print("&eMysql&c出现了一点小问题,具体原因如下:&3"+e.getMessage());
         }
     }
 }

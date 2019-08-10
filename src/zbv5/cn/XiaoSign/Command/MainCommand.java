@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import zbv5.cn.XiaoSign.Gui.Inv;
 import zbv5.cn.XiaoSign.Gui.VvInv;
+import zbv5.cn.XiaoSign.Main;
 import zbv5.cn.XiaoSign.Utils.FileUtils;
 import zbv5.cn.XiaoSign.Utils.Util;
 
@@ -58,7 +59,13 @@ public class MainCommand implements CommandExecutor
                     if ((sender instanceof Player))
                     {
                         Player p = (Player)sender;
-                        VexViewAPI.openGui(p,VvInv.Gui(p));
+                        if(Main.VexView)
+                        {
+                            VexViewAPI.openGui(p, VvInv.Gui(p));
+                        } else {
+                            p.sendMessage(Util.cc(FileUtils.lang.getString("NoVexView")));
+                            return false;
+                    }
                     } else
                         {
                         sender.sendMessage(Util.cc(FileUtils.lang.getString("NeedPlayer")));

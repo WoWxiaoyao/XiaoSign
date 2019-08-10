@@ -89,7 +89,7 @@ public class FileUtils
         }
         if(config.getString("Store").equals("Mysql"))
         {
-            Mysql.setPlayerSign(p,Integer.toString(Util.getNowWeek()),NewDate);
+            Mysql.setPlayerSign(p,Integer.toString(DateUtil.getNowWeek()),NewDate);
         }
         UpdatePlayerSignDate(p);
     }

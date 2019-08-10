@@ -7,6 +7,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import zbv5.cn.XiaoSign.Main;
+import zbv5.cn.XiaoSign.Utils.DateUtil;
 import zbv5.cn.XiaoSign.Utils.FileUtils;
 import zbv5.cn.XiaoSign.Utils.Util;
 
@@ -16,9 +17,9 @@ public class Inv
 {
     public static void openInv(Player p)
     {
-        if(!Util.WeekDate.containsValue(Util.getNowTime()))
+        if(!DateUtil.WeekDate.containsValue(DateUtil.getNowTime()))
         {
-            Util.getWeekDate();
+            DateUtil.getWeekDate();
         }
 
         Inventory inv = Main.getInstance().getServer().createInventory(null, FileUtils.inv.getInt("size"), Util.cc(FileUtils.inv.getString("Title")));
@@ -35,7 +36,7 @@ public class Inv
             if(items.getBoolean("Sign"))
             {
                 SignWeekDay = items.getInt("SignWeekDay");
-                String SignInfo = Util.CheckPlayerSign(p,Util.WeekDate.get(Integer.toString(SignWeekDay)));
+                String SignInfo = Util.CheckPlayerSign(p,DateUtil.WeekDate.get(Integer.toString(SignWeekDay)));
                 items = FileUtils.inv.getConfigurationSection("SignItem."+SignInfo);
                 sign = true;
                 amount = SignWeekDay;

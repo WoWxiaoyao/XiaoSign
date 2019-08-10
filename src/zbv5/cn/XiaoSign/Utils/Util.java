@@ -14,8 +14,6 @@ import zbv5.cn.XiaoSign.Store.Mysql;
 
 public class Util
 {
-    public static HashMap<String, String> WeekDate = new HashMap<String, String>();
-    public static List<String> WeekDateList = new ArrayList<String>();
     public static String Prefix = "&6[&bXiaoSign&6]";
 
     public static void Print(String s)
@@ -34,6 +32,7 @@ public class Util
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
         {
             Main.PlaceholderAPI = true;
+            new HookUtil(Main.getInstance()).hook();
             Print("&b检测到前置插件 &aPlaceholderAPI");
         } else{
             Print("&c未检测到前置插件 &aPlaceholderAPI");
@@ -47,47 +46,10 @@ public class Util
         }
     }
 
-    public static void  getWeekDate()
-    {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        Calendar cal = Calendar.getInstance();
-
-        while (cal.get(Calendar.DAY_OF_WEEK) != Calendar.MONDAY)
-        {
-            cal.add(Calendar.DATE, -1);
-        }
-        for (int i = 1; i < 8; i++)
-        {
-            WeekDate.put(Integer.toString(i), dateFormat.format(cal.getTime()));
-            WeekDateList.add(dateFormat.format(cal.getTime()));
-            Print("&e"+i+": "+dateFormat.format(cal.getTime()));
-            cal.add(Calendar.DATE, 1);
-        }
-    }
-
-    public static String getNowTime()
-    {
-        Date date = new Date(System.currentTimeMillis());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        return dateFormat.format(date);
-    }
-
-    public static int getNowWeek()
-    {
-        Calendar cal = Calendar.getInstance();
-        cal.setFirstDayOfWeek(Calendar.MONDAY);
-        int dayWeek = cal.get(Calendar.DAY_OF_WEEK);
-        if(dayWeek==1)
-        {
-            dayWeek = 8;
-        }
-        return dayWeek-1;
-    }
-
     public static String CheckPlayerSign(Player p,String time)
     {
         List<String> date = FileUtils.getPlayerSignDate(p);
-        String now = getNowTime();
+        String now = DateUtil.getNowTime();
         if(date==null)
         {
             if(time.equals(now))
@@ -113,7 +75,7 @@ public class Util
             return "PastNotSign";
         }
     }
-    private static int getPlayerSignEx(Player p,String type)
+    public static int getPlayerSignEx(Player p,String type)
     {
         int ex = 0;
         if(FileUtils.Store.equals("Yml"))
@@ -144,7 +106,7 @@ public class Util
                 {
                     for(String s : list)
                     {
-                        if(WeekDateList.contains(s))
+                        if(DateUtil.WeekDateList.contains(s))
                         {
                             ex = ex+1;
                         }
@@ -169,7 +131,7 @@ public class Util
                 {
                     for(String s : list)
                     {
-                        if(WeekDateList.contains(s))
+                        if(DateUtil.WeekDateList.contains(s))
                         {
                             ex = ex+1;
                         }
@@ -214,14 +176,19 @@ public class Util
 
     public static String StringHook(Player p,String s,boolean sign,int SignWeekDay)
     {
-        s = cc(s.replace("<player>",p.getName()).replace("<today>",getNowTime()).replace("<ex>",Integer.toString(Util.getPlayerSignEx(p,"All"))).replace("<weekex>",Integer.toString(Util.getPlayerSignEx(p,"Week"))).replace("<monthex>",Integer.toString(Util.getPlayerSignEx(p,"Month"))));
+        s = cc(s.replace("<player>",p.getName())
+                .replace("<today>",DateUtil.getNowTime())
+                .replace("<ex>",Integer.toString(Util.getPlayerSignEx(p,"All")))
+                .replace("<weekex>",Integer.toString(Util.getPlayerSignEx(p,"Week")))
+                .replace("<tonextdaytime>",DateUtil.getToNextDayTime())
+                .replace("<monthex>",Integer.toString(Util.getPlayerSignEx(p,"Month"))));
         if(Main.PlaceholderAPI)
         {
             s = PlaceholderAPI.setPlaceholders(p, s);
         }
         if(sign)
         {
-            s = s.replace("<info>",FileUtils.lang.getString("Sign."+CheckPlayerSign(p,WeekDate.get(Integer.toString(SignWeekDay))))).replace("<day>",Util.getChineseWeek(SignWeekDay)).replace("<date>",WeekDate.get(Integer.toString(SignWeekDay)));
+            s = s.replace("<info>",FileUtils.lang.getString("Sign."+CheckPlayerSign(p,DateUtil.WeekDate.get(Integer.toString(SignWeekDay))))).replace("<day>",Util.getChineseWeek(SignWeekDay)).replace("<date>",DateUtil.WeekDate.get(Integer.toString(SignWeekDay)));
             return s;
         } else {
             return s;
@@ -311,6 +278,10 @@ public class Util
 
     private static void  PlayerSign(Player p)
     {
+        if(!CheckPlayerSign(p,DateUtil.getNowTime()).equals("NotSign"))
+        {
+            return;
+        }
         int NeedSlot = 0;
         List<String> RewardRun = new ArrayList<String>();
         int priority = 2147483647;
@@ -330,7 +301,7 @@ public class Util
         }
         if(CheckPlayerSize(p,NeedSlot))
         {
-            FileUtils.setPlayerSign(p,getNowTime());
+            FileUtils.setPlayerSign(p,DateUtil.getNowTime());
             Run(RewardRun,p);
             if(FileUtils.config.getBoolean("SignReward.RewardWeekEx.Enable"))
             {

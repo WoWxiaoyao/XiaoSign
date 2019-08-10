@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import zbv5.cn.XiaoSign.Main;
+import zbv5.cn.XiaoSign.Utils.Util;
 
 public class Yml
 {
@@ -36,7 +37,7 @@ public class Yml
             }
             catch (Exception ex)
             {
-                ex.printStackTrace();
+                Util.Print("&eYml&c出现了一点小问题,具体原因如下:&3"+ex.getMessage());
             }
         }
     }
@@ -67,7 +68,7 @@ public class Yml
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
+            Util.Print("&eYml&c出现了一点小问题,具体原因如下:&3"+ex.getMessage());
         }
     }
 }

@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import zbv5.cn.XiaoSign.Store.Mysql;
+import zbv5.cn.XiaoSign.Utils.DateUtil;
 import zbv5.cn.XiaoSign.Utils.FileUtils;
 import zbv5.cn.XiaoSign.Utils.Util;
 
@@ -79,7 +80,7 @@ public class PlayerListener implements Listener
                         if(items.getBoolean("Sign"))
                         {
                             SignWeekDay = items.getInt("SignWeekDay");
-                            SignInfo = Util.CheckPlayerSign(p,Util.WeekDate.get(Integer.toString(SignWeekDay)));
+                            SignInfo = Util.CheckPlayerSign(p, DateUtil.WeekDate.get(Integer.toString(SignWeekDay)));
                             sign = true;
                         }
                         for(int slot:FileUtils.inv.getIntegerList("items."+Items+".slots"))
@@ -91,7 +92,7 @@ public class PlayerListener implements Listener
                                     Util.Run(FileUtils.inv.getStringList("SignItem."+SignInfo+".click"),p);
                                     if(SignInfo.equals("NotSign"))
                                     {
-                                        SignInfo = Util.CheckPlayerSign(p,Util.WeekDate.get(Integer.toString(SignWeekDay)));
+                                        SignInfo = Util.CheckPlayerSign(p,DateUtil.WeekDate.get(Integer.toString(SignWeekDay)));
                                         items = FileUtils.inv.getConfigurationSection("SignItem."+SignInfo);
                                         ItemStack item = new ItemStack(Material.getMaterial(items.getInt("material")), SignWeekDay, (short)items.getInt("data"));
                                         ItemMeta id = item.getItemMeta();

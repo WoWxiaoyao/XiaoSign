@@ -3,6 +3,7 @@ package zbv5.cn.XiaoSign;
 import org.bukkit.plugin.java.JavaPlugin;
 import zbv5.cn.XiaoSign.Command.MainCommand;
 import zbv5.cn.XiaoSign.Listener.PlayerListener;
+import zbv5.cn.XiaoSign.Utils.DateUtil;
 import zbv5.cn.XiaoSign.Utils.FileUtils;
 import zbv5.cn.XiaoSign.Utils.Util;
 
@@ -28,7 +29,7 @@ public class Main extends JavaPlugin
         FileUtils.LoadConfig();
         FileUtils.LoadData();
         Util.CheckPlugin();
-        Util.getWeekDate();
+        DateUtil.getWeekDate();
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         getCommand("XiaoSign").setExecutor(new MainCommand());
         Util.Print("&a插件加载完成");
