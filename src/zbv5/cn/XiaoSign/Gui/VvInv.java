@@ -7,7 +7,6 @@ import lk.vexview.gui.components.expand.VexGifImage;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import zbv5.cn.XiaoSign.Listener.PlayerListener;
-import zbv5.cn.XiaoSign.Main;
 import zbv5.cn.XiaoSign.Utils.DateUtil;
 import zbv5.cn.XiaoSign.Utils.FileUtils;
 import zbv5.cn.XiaoSign.Utils.Util;
@@ -110,8 +109,10 @@ public class VvInv
                                 public void run(Player p)
                                 {
                                     Util.Run(Button.getStringList("Run"),p);
-                                    p.closeInventory();
-                                    VexViewAPI.openGui(p,Gui(p));
+                                    if(!Button.getStringList("Run").contains("[close]"))
+                                    {
+                                        VexViewAPI.openGui(p,Gui(p));
+                                    }
                                 }
                             });
                             inv.addComponent(vb);
@@ -124,8 +125,10 @@ public class VvInv
                                 public void run(Player p)
                                 {
                                     Util.Run(Button.getStringList("Run"),p);
-                                    p.closeInventory();
-                                    VexViewAPI.openGui(p,Gui(p));
+                                    if(!Button.getStringList("Run").contains("[close]"))
+                                    {
+                                        VexViewAPI.openGui(p,Gui(p));
+                                    }
                                 }
                             },text);
                             inv.addComponent(vb);

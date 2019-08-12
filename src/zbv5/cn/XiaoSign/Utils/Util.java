@@ -1,8 +1,5 @@
 package zbv5.cn.XiaoSign.Utils;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
-
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,6 +8,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import zbv5.cn.XiaoSign.Main;
 import zbv5.cn.XiaoSign.Store.Mysql;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Util
 {
@@ -278,7 +280,8 @@ public class Util
 
     private static void  PlayerSign(Player p)
     {
-        if(!CheckPlayerSign(p,DateUtil.getNowTime()).equals("NotSign"))
+        String NowType = CheckPlayerSign(p,DateUtil.getNowTime());
+        if(!NowType.equals("NotSign"))
         {
             return;
         }

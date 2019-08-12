@@ -1,6 +1,5 @@
 package zbv5.cn.XiaoSign.Listener;
 
-import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -9,14 +8,12 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
+import zbv5.cn.XiaoSign.Gui.Inv;
 import zbv5.cn.XiaoSign.Store.Mysql;
 import zbv5.cn.XiaoSign.Utils.DateUtil;
 import zbv5.cn.XiaoSign.Utils.FileUtils;
 import zbv5.cn.XiaoSign.Utils.Util;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PlayerListener implements Listener
@@ -92,22 +89,9 @@ public class PlayerListener implements Listener
                                     Util.Run(FileUtils.inv.getStringList("SignItem."+SignInfo+".click"),p);
                                     if(SignInfo.equals("NotSign"))
                                     {
-                                        SignInfo = Util.CheckPlayerSign(p,DateUtil.WeekDate.get(Integer.toString(SignWeekDay)));
-                                        items = FileUtils.inv.getConfigurationSection("SignItem."+SignInfo);
-                                        ItemStack item = new ItemStack(Material.getMaterial(items.getInt("material")), SignWeekDay, (short)items.getInt("data"));
-                                        ItemMeta id = item.getItemMeta();
-                                        id.setDisplayName(Util.StringHook(p,items.getString("display_name"),sign,SignWeekDay));
-                                        ArrayList<String> lore = new ArrayList<String>();
-                                        for(String line:items.getStringList("Lore"))
+                                        if(!FileUtils.inv.getStringList("SignItem."+SignInfo+".click").contains("[close]"))
                                         {
-                                            lore.add(Util.StringHook(p,line,sign,SignWeekDay));
-                                        }
-
-                                        id.setLore(lore);
-                                        item.setItemMeta(id);
-                                        if(OpenCheck.containsKey(p.getName()))
-                                        {
-                                            e.getClickedInventory().setItem(ClickSlot, item);
+                                            Inv.openInv(p);
                                         }
                                     }
                                 } else {
