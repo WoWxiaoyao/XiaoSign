@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ffc05b5-2e9c-4e0b-a7d2-3a2d23e49704" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="6ffc05b5-2e9c-4e0b-a7d2-3a2d23e49704" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +157,7 @@
       <workItem from="1565577010956" duration="135000" />
       <workItem from="1565577198311" duration="98000" />
       <workItem from="1565599620097" duration="5055000" />
-      <workItem from="1581840632385" duration="2137000" />
+      <workItem from="1581840632385" duration="2790000" />
     </task>
     <servers />
   </component>
