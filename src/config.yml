@@ -60,13 +60,14 @@ SignReward:
           - '[console]give <player> 1 1'
           - '[message]&a&6[&b每日签到&6]&a签到成功,奖励已发送至你的背包.'
       #所需本周签到5天
-      5:
+        #5:
         #需要背包空出格数(感觉有点鸡肋 后面版本可能会删除掉)
-        NeedSlot: 1
+        #NeedSlot: 1
         #执行内容
-        Reward:
-          - '[console]give <player> 1 1'
-          - '[message]&a&6[&b每日签到&6]&a签到成功,奖励已发送至你的背包.'
+          #Reward:
+          #- '[console]give <player> 1 1'
+          #- '[message]&a&6[&b每日签到&6]&a签到成功,奖励已发送至你的背包.'
+  #月累计签到奖励
   RewardMonthEx:
     Enable: false
     List:
@@ -80,6 +81,7 @@ SignReward:
         Reward:
           - '[console]give <player> 1 1'
           - '[message]&a&6[&b每日签到&6]&a签到成功,奖励已发送至你的背包.'
+  #总共签到奖励 (从第一次签到起到现在签到次数和)
   RewardAllEx:
     Enable: false
     List:
