@@ -7,9 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ffc05b5-2e9c-4e0b-a7d2-3a2d23e49704" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inv.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/inv.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vv.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/vv.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/XiaoSign_jar/XiaoSign.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/XiaoSign_jar/XiaoSign.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +166,7 @@
       <workItem from="1582203103147" duration="35000" />
       <workItem from="1582290826352" duration="75000" />
       <workItem from="1582354652504" duration="1194000" />
-      <workItem from="1582389596041" duration="1630000" />
+      <workItem from="1582389596041" duration="1684000" />
     </task>
     <servers />
   </component>
