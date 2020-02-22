@@ -7,25 +7,63 @@ Mysql:
   PassWord: "root"
 SignReward:
   EveryDay:
+    #默认签到奖励
     default:
+      #需要背包空出格数(感觉有点鸡肋 后面版本可能会删除掉)
       NeedSlot: 1
+      #获取该组签到奖励所需权限 (由于自定义了权限 所以默认组也需要手动给权限)
       NeedPermission: 'XiaoSign.sign.default'
+      #优先级 数越大 越优先 请勿大于2147483647
       priority: 99999
+      #执行内容
+      #   - [close] 关闭玩家当前打开的inv/vv页面.
+      #   - [message] 向执行玩家发送信息
+      #   - [bc] 向服务器发送公告
+      #   - [op] 玩家以op形式执行命令
+      #   - [player] 玩家以默认拥有权限形式执行命令
+      #   - [console] 控制台执行命令
       Reward:
         - '[console]give <player> 1 1'
         - '[message]&a&6[&b每日签到&6]&a签到成功,奖励已发送至你的背包.'
+    #VIP组
     vip:
       NeedSlot: 1
+      #所需权限
       NeedPermission: 'XiaoSign.sign.vip'
+      #优先级 小于默认组
       priority: 9999
       Reward:
         - '[console]give <player> 1 1'
         - '[message]&a&6[&b每日签到&6]&c尊贵的会员玩家,您已签到成功!奖励已发送至你的背包.'
+    #SVIP组  依次类推(CLTR + c CLTR + v)熬 注意:修改组名 权限 优先级
+      #svip:
+      #NeedSlot: 1
+      #所需权限
+      #NeedPermission: 'XiaoSign.sign.svip'
+      #优先级 小于VIP组
+      #priority: 999
+        #Reward:
+        #- '[console]give <player> 1 1'
+        #- '[message]&a&6[&b每日签到&6]&c尊贵的会员玩家,您已签到成功!奖励已发送至你的背包.'
+  #每周累计签到奖励
   RewardWeekEx:
+    #启用改为true 禁用改为false
     Enable: false
+    #列表 可设置多个奖励
     List:
+      #所需本周签到7天 也就是俗称的连续签到无间断
       7:
+        #需要背包空出格数(感觉有点鸡肋 后面版本可能会删除掉)
         NeedSlot: 1
+        #执行内容
+        Reward:
+          - '[console]give <player> 1 1'
+          - '[message]&a&6[&b每日签到&6]&a签到成功,奖励已发送至你的背包.'
+      #所需本周签到5天
+      5:
+        #需要背包空出格数(感觉有点鸡肋 后面版本可能会删除掉)
+        NeedSlot: 1
+        #执行内容
         Reward:
           - '[console]give <player> 1 1'
           - '[message]&a&6[&b每日签到&6]&a签到成功,奖励已发送至你的背包.'

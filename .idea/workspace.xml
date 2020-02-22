@@ -6,7 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ffc05b5-2e9c-4e0b-a7d2-3a2d23e49704" name="Default Changelist" comment="" />
+    <list default="true" id="6ffc05b5-2e9c-4e0b-a7d2-3a2d23e49704" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +55,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -157,7 +161,12 @@
       <workItem from="1565577010956" duration="135000" />
       <workItem from="1565577198311" duration="98000" />
       <workItem from="1565599620097" duration="5055000" />
-      <workItem from="1581840632385" duration="2790000" />
+      <workItem from="1581840632385" duration="3389000" />
+      <workItem from="1582076294090" duration="338000" />
+      <workItem from="1582203103147" duration="35000" />
+      <workItem from="1582290826352" duration="75000" />
+      <workItem from="1582354652504" duration="1194000" />
+      <workItem from="1582389596041" duration="917000" />
     </task>
     <servers />
   </component>
