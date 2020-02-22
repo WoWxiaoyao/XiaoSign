@@ -1,8 +1,18 @@
+#VexView页面配置
+#
+#
+
+#用于签到所显示的item
 Sign:
+  #今天已经签到
   AlreadySign: "https://ae01.alicdn.com/kf/H0e03c79e00954d4b9ba3e5291325d361t.png"
+  #今天没有签到 可签到
   NotSign: "https://ae01.alicdn.com/kf/Hbde31d93f78145bc9966a62a218dfc6bF.png"
+  #过去已经签到
   PastSign: "https://ae01.alicdn.com/kf/H0e03c79e00954d4b9ba3e5291325d361t.png"
+  #过去没有签到
   PastNotSign: "https://ae01.alicdn.com/kf/H193e108b656c4abdac1cb5176bf6bf87C.png"
+  #所放位置
   Site:
     1:
       X: 5
@@ -26,6 +36,9 @@ Sign:
       X: 365
       Y: 160
 #VexView ui设置
+#
+#
+#
 Url: "https://ae01.alicdn.com/kf/H8e8873f333a74643833cf822af7cee412.png"
 X: -1
 Y: -1

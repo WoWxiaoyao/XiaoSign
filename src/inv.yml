@@ -1,15 +1,26 @@
+#原版Inv页面配置
+#
+#
+
+#用于签到所显示的item
 SignItem:
+  #今天已经签到
   AlreadySign:
+    #itemid
     material: 35
+    #item data
     data: 5
+    #显示名称
     display_name: '&e&l<day>'
     Lore:
       - "&8<date>"
       - ""
       - "&a&l✔ &7已经完成签到"
+    #点击后触发 更多执行内容请查看config.yml注释
     click:
       - '[close]'
       - '[message]&6[&b每日签到&6]&c你今天已经签过到了.'
+  #今天没有签到 可签到
   NotSign:
     material: 35
     data: 1
@@ -18,9 +29,11 @@ SignItem:
       - "&8<date>"
       - ""
       - "&e&l☀ &3可签到"
+    #请注意仅给该item [sign]触发
     click:
       #- '[close]'
       - '[sign]'
+  #过去已经签到
   PastSign:
     material: 35
     data: 5
@@ -32,6 +45,7 @@ SignItem:
     click:
       - '[close]'
       - '[message]&6[&b每日签到&6]&c你过去已经签过到了.'
+  #过去没有签到
   PastNotSign:
     material: 35
     data: 14
@@ -44,13 +58,19 @@ SignItem:
       - '[close]'
       - '[message]&6[&b每日签到&6]&c往日一去不复返.'
 
-
+#inv 页面名称
 Title: "&8每日签到"
+#inv尺寸
 size: 27
+#列表 就像菜单一样 so easy ~
 items:
+  #签到物品
   Sign-1:
+    #用于签到 true
     Sign: true
+    #用于本周的第?天签到
     SignWeekDay: 1
+    #所放位置 n-1
     slots:
       - 10
   Sign-2:
@@ -87,8 +107,10 @@ items:
     material: 397
     data: 3
     amount: 1
+    #不用于签到 false
     Sign: false
     display_name: '&c&l说明 &e>>'
+    #下方lore支持PlaceholderAPI
     Lore:
       - "&7玩家 &6<player>"
       - "&7累计签到 &a<ex>次"
