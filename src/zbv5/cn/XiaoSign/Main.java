@@ -7,6 +7,7 @@ import zbv5.cn.XiaoSign.Listener.PlayerListener;
 import zbv5.cn.XiaoSign.Utils.DateUtil;
 import zbv5.cn.XiaoSign.Utils.FileUtils;
 import zbv5.cn.XiaoSign.Utils.Util;
+import zbv5.cn.XiaoSign.bStats.Metrics;
 
 /**
  * @author wow_xiaoyao
@@ -45,7 +46,9 @@ public class Main extends JavaPlugin
             }
         }, 20L, 20L);
 
-
+        int pluginId = 7410;
+        Metrics metrics = new Metrics(this, pluginId);
+        metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
         Util.Print("&a插件加载完成");
     }
     @Override
