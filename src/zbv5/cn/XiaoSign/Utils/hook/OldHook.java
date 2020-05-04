@@ -1,12 +1,15 @@
-package zbv5.cn.XiaoSign.Utils;
+package zbv5.cn.XiaoSign.Utils.hook;
 
 import me.clip.placeholderapi.external.EZPlaceholderHook;
 import org.bukkit.entity.Player;
 import zbv5.cn.XiaoSign.Main;
+import zbv5.cn.XiaoSign.Utils.DateUtil;
+import zbv5.cn.XiaoSign.Utils.FileUtils;
+import zbv5.cn.XiaoSign.Utils.Util;
 
-public class HookUtil extends EZPlaceholderHook
+public class OldHook extends EZPlaceholderHook
 {
-    public HookUtil(Main xiaosign)
+    public OldHook(Main xiaosign)
     {
         super(xiaosign, "xiaosign");
     }

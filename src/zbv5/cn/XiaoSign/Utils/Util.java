@@ -5,9 +5,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import zbv5.cn.XiaoSign.Main;
 import zbv5.cn.XiaoSign.Store.Mysql;
+import zbv5.cn.XiaoSign.Utils.hook.MainHook;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,8 +34,8 @@ public class Util
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
         {
             Main.PlaceholderAPI = true;
-            new HookUtil(Main.getInstance()).hook();
             Print("&b检测到前置插件 &aPlaceholderAPI");
+            MainHook.hook(Bukkit.getPluginManager().getPlugin("PlaceholderAPI").getDescription().getVersion());
         } else{
             Print("&c未检测到前置插件 &aPlaceholderAPI");
         }
@@ -191,10 +191,8 @@ public class Util
         if(sign)
         {
             s = s.replace("<info>",FileUtils.lang.getString("Sign."+CheckPlayerSign(p,DateUtil.WeekDate.get(Integer.toString(SignWeekDay))))).replace("<day>",Util.getChineseWeek(SignWeekDay)).replace("<date>",DateUtil.WeekDate.get(Integer.toString(SignWeekDay)));
-            return s;
-        } else {
-            return s;
         }
+        return s;
     }
     public static void Run(List<String> list,Player p)
     {
@@ -258,34 +256,13 @@ public class Util
         }
     }
 
-    private static  boolean CheckPlayerSize(Player p,int NeedSlot)
-    {
-        Boolean check = false;
-        int PlayerSize = p.getInventory().getSize() - 5;
-        for (ItemStack item : p.getInventory().getContents())
-        {
-            if ((item != null))
-            {
-                PlayerSize = PlayerSize -1;
-            }
-        }
-        if(PlayerSize < NeedSlot)
-        {
-            p.sendMessage(Util.cc(FileUtils.lang.getString("PlayerInventoryFull")));
-        } else {
-            check = true;
-        }
-        return check;
-    }
-
-    private static void  PlayerSign(Player p)
+    private static void PlayerSign(Player p)
     {
         String NowType = CheckPlayerSign(p,DateUtil.getNowTime());
         if(!NowType.equals("NotSign"))
         {
             return;
         }
-        int NeedSlot = 0;
         List<String> RewardRun = new ArrayList<String>();
         int priority = 2147483647;
         ConfigurationSection RewardList = (ConfigurationSection)FileUtils.config.get("SignReward.EveryDay");
@@ -298,63 +275,49 @@ public class Util
                 {
                     priority = RewardConfig.getInt("priority");
                     RewardRun = RewardConfig.getStringList("Reward");
-                    NeedSlot = RewardConfig.getInt("NeedSlot");
                 }
             }
         }
-        if(CheckPlayerSize(p,NeedSlot))
+        FileUtils.setPlayerSign(p,DateUtil.getNowTime());
+        Run(RewardRun,p);
+        if(FileUtils.config.getBoolean("SignReward.RewardWeekEx.Enable"))
         {
-            FileUtils.setPlayerSign(p,DateUtil.getNowTime());
-            Run(RewardRun,p);
-            if(FileUtils.config.getBoolean("SignReward.RewardWeekEx.Enable"))
+            ConfigurationSection RewardExList = (ConfigurationSection)FileUtils.config.get("SignReward.RewardWeekEx.List");
+            for (String RewardEx : RewardExList.getKeys(false))
             {
-                ConfigurationSection RewardExList = (ConfigurationSection)FileUtils.config.get("SignReward.RewardWeekEx.List");
-                for (String RewardEx : RewardExList.getKeys(false))
+                int WeekEx = getPlayerSignEx(p,"Week");
+                if(Integer.parseInt(RewardEx) == WeekEx)
                 {
-                    int WeekEx = getPlayerSignEx(p,"Week");
-                    if(Integer.parseInt(RewardEx) == WeekEx)
-                    {
-                        ConfigurationSection Reward = FileUtils.config.getConfigurationSection("SignReward.RewardWeekEx.List."+RewardEx);
-                        if(CheckPlayerSize(p,Reward.getInt("NeedSlot")))
-                        {
-                            Run(Reward.getStringList("Reward"),p);
-                        }
-                    }
-                }
-            }
-            if(FileUtils.config.getBoolean("SignReward.RewardMonthEx.Enable"))
-            {
-                ConfigurationSection RewardExList = (ConfigurationSection)FileUtils.config.get("SignReward.RewardMonthEx.List");
-                for (String RewardEx : RewardExList.getKeys(false))
-                {
-                    int MonthEx = getPlayerSignEx(p,"Month");
-                    if(Integer.parseInt(RewardEx) == MonthEx)
-                    {
-                        ConfigurationSection Reward = FileUtils.config.getConfigurationSection("SignReward.RewardMonthEx.List."+RewardEx);
-                        if(CheckPlayerSize(p,Reward.getInt("NeedSlot")))
-                        {
-                            Run(Reward.getStringList("Reward"),p);
-                        }
-                    }
-                }
-            }
-            if(FileUtils.config.getBoolean("SignReward.RewardAllEx.Enable"))
-            {
-                ConfigurationSection RewardExList = (ConfigurationSection)FileUtils.config.get("SignReward.RewardAllEx.List");
-                for (String RewardEx : RewardExList.getKeys(false))
-                {
-                    int Ex = getPlayerSignEx(p,"All");
-                    if(Integer.parseInt(RewardEx) == Ex)
-                    {
-                        ConfigurationSection Reward = FileUtils.config.getConfigurationSection("SignReward.RewardAllEx.List."+RewardEx);
-                        if(CheckPlayerSize(p,Reward.getInt("NeedSlot")))
-                        {
-                            Run(Reward.getStringList("Reward"),p);
-                        }
-                    }
+                    ConfigurationSection Reward = FileUtils.config.getConfigurationSection("SignReward.RewardWeekEx.List."+RewardEx);
+                    Run(Reward.getStringList("Reward"),p);
                 }
             }
         }
-
+        if(FileUtils.config.getBoolean("SignReward.RewardMonthEx.Enable"))
+        {
+            ConfigurationSection RewardExList = (ConfigurationSection)FileUtils.config.get("SignReward.RewardMonthEx.List");
+            for (String RewardEx : RewardExList.getKeys(false))
+            {
+                int MonthEx = getPlayerSignEx(p,"Month");
+                if(Integer.parseInt(RewardEx) == MonthEx)
+                {
+                    ConfigurationSection Reward = FileUtils.config.getConfigurationSection("SignReward.RewardMonthEx.List."+RewardEx);
+                    Run(Reward.getStringList("Reward"),p);
+                }
+            }
+        }
+        if(FileUtils.config.getBoolean("SignReward.RewardAllEx.Enable"))
+        {
+            ConfigurationSection RewardExList = (ConfigurationSection)FileUtils.config.get("SignReward.RewardAllEx.List");
+            for (String RewardEx : RewardExList.getKeys(false))
+            {
+                int Ex = getPlayerSignEx(p,"All");
+                if(Integer.parseInt(RewardEx) == Ex)
+                {
+                    ConfigurationSection Reward = FileUtils.config.getConfigurationSection("SignReward.RewardAllEx.List."+RewardEx);
+                    Run(Reward.getStringList("Reward"),p);
+                }
+            }
+        }
     }
 }

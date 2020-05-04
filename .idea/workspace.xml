@@ -7,8 +7,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ffc05b5-2e9c-4e0b-a7d2-3a2d23e49704" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/1122.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/PlaceholderAPI_2_10_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/VexView2_6_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/hook/MainHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/hook/NewHook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/hook/OldHook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/XiaoSign_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/XiaoSign_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/PlaceholderAPI.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/VexView2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/spigot_1_11_2_R0_1_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XiaoSign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/XiaoSign.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/XiaoSign_jar/XiaoSign.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/XiaoSign_jar/XiaoSign.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/XiaoSign/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/XiaoSign/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/XiaoSign/inv.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/XiaoSign/inv.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/XiaoSign/lang.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/XiaoSign/lang.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/XiaoSign/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/XiaoSign/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/XiaoSign/vv.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/XiaoSign/vv.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inv.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/inv.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lang.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/lang.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vv.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/vv.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Command/MainCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Command/MainCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Gui/Inv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Gui/Inv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Gui/VvInv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Gui/VvInv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Listener/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Listener/PlayerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Store/Mysql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Store/Mysql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Store/Yml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Store/Yml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/DateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/DateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/HookUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zbv5/cn/XiaoSign/Utils/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +86,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -59,7 +93,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lib/VexView2.6.10.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -112,18 +146,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -167,21 +189,26 @@
       <workItem from="1582290826352" duration="75000" />
       <workItem from="1582354652504" duration="1194000" />
       <workItem from="1582389596041" duration="1684000" />
+      <workItem from="1588599414066" duration="3157000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1581840665994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="798" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581840665994" />
-    <state x="272" y="190" key="SettingsEditor" timestamp="1581840658976">
+    <state x="466" y="355" key="FileChooserDialogImpl" timestamp="1588599702820">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="272" y="190" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581840658976" />
+    <state x="466" y="355" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588599702820" />
+    <state x="272" y="189" key="SettingsEditor" timestamp="1588599705655">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="272" y="189" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588599705655" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582390830304">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

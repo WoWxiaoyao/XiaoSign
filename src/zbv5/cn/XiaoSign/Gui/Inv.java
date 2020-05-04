@@ -30,7 +30,7 @@ public class Inv
         {
             ConfigurationSection items = FileUtils.inv.getConfigurationSection("items."+Items);
             ItemStack item;
-            Boolean sign = false;
+            boolean sign = false;
             int SignWeekDay = 0;
             int amount = 0;
             if(items.getBoolean("Sign"))
@@ -48,7 +48,7 @@ public class Inv
             item = new ItemStack(Material.getMaterial(items.getInt("material")), amount, (short) items.getInt("data"));
 
             ItemMeta id = item.getItemMeta();
-            id.setDisplayName(Util.StringHook(p,items.getString("display_name"),sign,SignWeekDay));
+            id.setDisplayName(Util.StringHook(p,"&8&5&7&f&6&f&f"+items.getString("display_name"),sign,SignWeekDay));
             ArrayList<String> lore = new ArrayList<String>();
             for(String line:items.getStringList("Lore"))
             {

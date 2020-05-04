@@ -1,5 +1,6 @@
 package zbv5.cn.XiaoSign.Listener;
 
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,6 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 import zbv5.cn.XiaoSign.Gui.Inv;
 import zbv5.cn.XiaoSign.Store.Mysql;
 import zbv5.cn.XiaoSign.Utils.DateUtil;
@@ -66,6 +68,8 @@ public class PlayerListener implements Listener
                 {
                     e.setCancelled(true);
                     int ClickSlot = e.getSlot();
+                    ItemStack item = e.getCurrentItem();
+                    if((item ==null) ||(item.getType() == Material.AIR) ||(!item.hasItemMeta()) ||(!item.getItemMeta().hasDisplayName()) ||(!item.getItemMeta().getDisplayName().startsWith(Util.cc("&8&5&7&f&6&f&f"))))return;
                     ConfigurationSection ItemList = (ConfigurationSection)FileUtils.inv.get("items");
 
                     for (String Items : ItemList.getKeys(false))

@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="VexView2.3">
+  <library name="VexView2.6.10">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Lib/VexView2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Lib/VexView2.6.10.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
